@@ -70,6 +70,34 @@ app.member=(function(){
             var inputId = $('#id').val();
             var inputPw = $('#pass').val();
             $.ajax({
+				/*url: 'json/package.json',
+				asynch: false,
+				tyle: 'POST',
+				data:{
+				   id: inputId,
+					password: inputPass
+				},
+				dataType: 'json',
+				success: function(data){
+				   $.each(data, function(i,o){
+					  if(o.id===inputId&&o.password===inputPass) {
+						  checkval=true;
+						  return false;
+					  }else{
+						  checkval=false;
+					  }
+				   });
+				   if(checkval===true){
+					   $('body').empty();
+					   $('<div></div>').attr('id', 'wrapper').appendTo('body');
+					   $('#wrapper').css('width', '100%').css('height', '100%').css('background-color', 'white').append('<div id="container"></div>');
+					   $('#wrapper').html('<div>' + o.id + '님 환영합니다.</div>');
+				   }else{
+					   alert('정보가 없습니다.');
+					   $('#id').val('');
+					   $('#pass').val('');
+				   }
+				}*/
                 url : 'http://www.yeomhyeseon.com/login',
                 method : 'POST',
                 data : JSON.stringify({
@@ -88,8 +116,7 @@ app.member=(function(){
                             $('body').empty();
                             $('<div></div>').attr('id','wrapper').appendTo('body');
                             $('#wrapper').css('width','100%').css('height','100%').css('background','white').append('<div id="container"></div>');
-                            var loginForm = '<div id="login-form"><span>아이디가 존재하지 않습니다.</span><input type="button" id="btn" value="Click">' +
-                                '</div>';
+                            var loginForm = '<div id="login-form"><span>아이디가 존재하지 않습니다.</span><input type="button" id="btn" value="Click"></div>';
                             $('#container').html(loginForm).css('padding','20px');
                             $('#login-form').css('width','300px').css('margin-top','0 auto');
                             $('span').css('margin-right','20px').css('margin-bottom','20px');
